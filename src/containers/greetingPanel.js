@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import { translate } from 'react-i18next';
 
-import { addToList, changeLenguage } from '../actions/greetingPanel.actions';
+import { addToList, changeLanguage } from '../actions/greetingPanel.actions';
 import Multiline from '../components/Multiline';
 import ListName  from '../components/ListName';
 import ChangeLanguage from '../components/ChangeLanguage';
@@ -17,7 +17,7 @@ const greetingPanel = ({
     <div>
         <Multiline addToList={addToList} t={t}/>
         <ListName t={t} listName={listName}/>
-        <ChangeLanguage i18n={i18n} changeLanguage={changeLenguage}/>
+        <ChangeLanguage i18n={i18n} changeLanguage={changeLanguage}/>
     </div>
     
 );
@@ -28,7 +28,7 @@ const mapStateToProps = state => ({
 
 const mapDispatchToProps = dispatch => ({
     addToList: listNames => dispatch(addToList(listNames)),
-    changeLenguage: (i18n, language) => dispatch(i18n, language)
+    changeLanguage: (i18n, language) => dispatch(i18n, language)
 })
 
 greetingPanel.propTypes = {

@@ -19,6 +19,6 @@ export function addToList(listNames) {
  * @param {string} language
  * @public
  */
-export function changeLenguage(i18n, language) {
+export function changeLanguage(i18n, language) {
     i18n.changeLanguage(language);
 }

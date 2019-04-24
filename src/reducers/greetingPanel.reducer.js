@@ -12,6 +12,6 @@ export default function greetingPanel(state = initialState, action) {
                 listName: action.listName
             }
         default:
-                return state;
+            return state;
     }
 }
