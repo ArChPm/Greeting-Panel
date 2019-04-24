@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import './App.css';
-import GreetingPanel from './components/greetingPanel'
+import GreetingPanel from './containers/greetingPanel'
 class App extends Component {
   
   render() {
@@ -8,12 +8,7 @@ class App extends Component {
     
     return (
       <div align="center">
-      <GreetingPanel t= {t}/>
-      <select onChange={(e) => i18n.changeLanguage(e.target.value)}>
-        <option value="en">English</option>
-        <option value="es">Spanish</option>
-        <option value="bg">Bulgaro</option>
-      </select>
+        <GreetingPanel t= {t} i18n={i18n}/>
       </div>
     );
   }

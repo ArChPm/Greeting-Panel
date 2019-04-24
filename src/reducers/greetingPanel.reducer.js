@@ -7,13 +7,10 @@ const initialState = {
 export default function greetingPanel(state = initialState, action) {
     switch(action.type) {
         case ADD_TO_LIST:
-            return Object.assign(
-                {},
-                state,
-                {
-                    listName: action.listName
-                }
-            ); 
+            return {
+                ...state,
+                listName: action.listName
+            }
         default:
                 return state;
     }

@@ -3,24 +3,21 @@ import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import { translate } from 'react-i18next';
 
-import { addToList } from '../actions/greetingPanel.actions';
+import { addToList, changeLenguage } from '../actions/greetingPanel.actions';
+import Multiline from '../components/Multiline';
+import ListName  from '../components/ListName';
+import ChangeLanguage from '../components/ChangeLanguage';
 
 const greetingPanel = ({
     addToList,
     listName,
     t,
+    i18n,
 }) => (
     <div>
-        <h1>{t('Insert list of names')}</h1>
-        <br/>
-        <textarea rows="5" cols="50" onChange ={(event) => addToList(event.target.value)}/>
-        <br/>
-        <div>
-        <h2>{t('Greeting Panel')}</h2>
-        <ul align="center">
-            {listName.map((name, index) =>{return <div key={index}><h3>{t('Hi')}, {name}</h3></div>})}
-        </ul>
-    </div>
+        <Multiline addToList={addToList} t={t}/>
+        <ListName t={t} listName={listName}/>
+        <ChangeLanguage i18n={i18n} changeLanguage={changeLenguage}/>
     </div>
     
 );
@@ -30,13 +27,15 @@ const mapStateToProps = state => ({
 });
 
 const mapDispatchToProps = dispatch => ({
-    addToList: listNames => dispatch(addToList(listNames))
+    addToList: listNames => dispatch(addToList(listNames)),
+    changeLenguage: (i18n, language) => dispatch(i18n, language)
 })
 
 greetingPanel.propTypes = {
     listName: PropTypes.array,
     addToList: PropTypes.func,
     t: PropTypes.func,
+    i18n: PropTypes.object,
 }
 
 export default translate('translations')(connect(mapStateToProps, mapDispatchToProps)(greetingPanel))
